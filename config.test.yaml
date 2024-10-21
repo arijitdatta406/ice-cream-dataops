@@ -1,0 +1,87 @@
+environment:
+  name: test
+  project: cdf-bootcamp-61-test
+  type: test
+  selected:
+  - modules/
+
+variables:
+  modules:
+    bootcamp:
+      CDF_PROJECT: cdf-bootcamp-61-test # ex. cdf-bootcamp-01-test
+      IDP_CLIENT_ID: ${IDP_CLIENT_ID} # replaced by .env
+      IDP_CLIENT_SECRET: ${IDP_CLIENT_SECRET} # replaced by .env
+      IDP_TENANT_ID: ${IDP_TENANT_ID} # replaced by .env
+      # This is related to the cluster where the CDF project is hosted.
+      CDF_URL: https://westeurope-1.cognitedata.com
+      IDP_SCOPES: https://westeurope-1.cognitedata.com/.default
+      IDP_TOKEN_URL: ${IDP_TOKEN_URL} # replaced by .env
+      # Groups
+      # OBJECT ID FOR TEST/PROD DATA PIPELINE OEE ENTRA GROUP
+      data_pipeline_oee_source_id: <NotSet>
+      # OBJECT ID FOR TEST/PROD ADMIN TK ENTRA GROUP
+      readwrite_source_id: <NotSet>
+      # OBJECT ID FOR TEST/PROD ADMIN TK ENTRA GROUP
+      readonly_source_id: <NotSet>
+      # OBJECT ID FOR TEST/PROD ICAPI EXTRACTORS ENTRA GROUP
+      icapi_extractors_source_id: <NotSet>
+      # Client Ids
+      data_pipeline_oee_client_id: ${DATA_PIPELINE_OEE_CLIENT_ID} # replaced by .env
+      data_pipeline_oee_client_secret: ${DATA_PIPELINE_OEE_CLIENT_SECRET} # replaced by .env
+      icapi_extractors_client_id: ${ICAPI_EXTRACTORS_CLIENT_ID} # replaced by .env
+      icapi_extractors_client_secret: ${ICAPI_EXTRACTORS_CLIENT_SECRET} # replaced by .env
+      # Variables shared by modules
+      icapi_ds_external_id: ds_icapi
+      use_cases:
+        oee:
+          uc_oee_ds_external_id: ds_uc_oee
+
+    common:
+      cdf_apm_base:
+        apm_datamodel_space: APM_SourceData
+
+    infield:
+      # The root asset external id should be
+      # set to different values for each location,
+      # but for demo purposes we are using the same value
+      first_location: oid
+      first_root_asset_external_id: WMT:VAL
+      second_location: oid2
+      second_root_asset_external_id: WMT:VAL
+      scheduleHourly: 0 * * * *
+      # Transformation authentication
+      cdf_cluster: ${CDF_CLUSTER}
+      cicd_clientId: ${IDP_CLIENT_ID}
+      cicd_clientSecret: ${IDP_CLIENT_SECRET}
+      cicd_tokenUri: ${IDP_TOKEN_URL}
+      cdfProjectName: ${CDF_PROJECT}
+      # Optional: If idP requires providing the scopes
+      cicd_scopes:
+      - ${IDP_SCOPES}
+      # Optional: If idP requires providing the audience
+      cicd_audience: ${IDP_AUDIENCE}
+      cdf_infield_common:
+        applicationsconfiguration_source_id: <change_me>
+        apm_config_instance_space: APM_Config
+
+      cdf_infield_location:
+        # This first location points to the location created by the cdf_oid_example_data module.
+        # When you create your own location by copying the cdf_oid_example_data module to
+        # set up data sets and groups, the below needs to refer to the location to define.
+        module_version: '1'
+        apm_datamodel_space: APM_SourceData
+        apm_app_config_external_id: default-infield-config-minimal
+        # RAW databases to load workorders and other workorder data from
+        # The below values point to the RAW database in the cdf_oid_example_data and should be
+        # changed if you want to load workorders from another RAW database.
+        source_asset: workmate
+        source_workorder: workmate
+        workorder_raw_db: workorder_oid_workmate
+        # The table name in the raw_db database that has workorder data
+        workorder_table_name: workorders
+        # the following properties are required for
+        # infield and must be updated for each location
+        infield_location_checklist_admin_users_source_id: <change_me>
+        infield_location_normal_users_source_id: <change_me>
+        infield_location_template_admin_users_source_id: <change_me>
+        infield_location_viewer_users_source_id: <change_me>
