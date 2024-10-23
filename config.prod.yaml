@@ -23,11 +23,11 @@ variables:
       scheduleHourly: 1 1 * * *
       # pause_transformations: ''
   # Groups
-      data_developer_source_id: 51e88e4c-e65c-4ffc-89d2-11d1ab8b6bba # ex. xxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx
-      data_pipeline_oee_source_id: 593789b1-9437-46a4-ae6f-2099491be385 # ex. xxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx
-      readwrite_source_id: bd0e24ac-4386-430f-b722-50b220332665  # ex. xxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx
-      readonly_source_id: bd0e24ac-4386-430f-b722-50b220332665  # ex. xxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx
-      icapi_extractors_source_id: c9c1631c-ee64-4b65-b19b-abf93f7c3682 # ex. xxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx
+      data_developer_source_id: 47e91e1b-e01b-49aa-91db-f21dcfedffe9  # ex. xxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx
+      data_pipeline_oee_source_id: bb63b82e-e44c-4b4e-8bbf-59ff7036f753 # ex. xxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx
+      readwrite_source_id: 9b01ad63-122f-4673-bb37-904fc55d45ac  # ex. xxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx
+      readonly_source_id: 9b01ad63-122f-4673-bb37-904fc55d45ac  # ex. xxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx
+      icapi_extractors_source_id: 9ca39277-e571-4542-88ab-1d50b11543db # ex. xxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx
 
   # Client Ids
       data_pipeline_oee_client_id: ${DATA_PIPELINE_OEE_CLIENT_ID} # replaced by .env
