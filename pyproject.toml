@@ -6,7 +6,7 @@ authors = ["arijitdatta406 <arijit.datta@gds.ey.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = "^3.11"
 cognite-toolkit = "^0.3.4"
 
 
