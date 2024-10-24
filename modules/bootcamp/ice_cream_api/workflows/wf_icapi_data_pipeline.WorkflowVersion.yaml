@@ -16,7 +16,7 @@ workflowDefinition:
   - externalId: create_asset_hierarchy
     type: transformation
     parameters:
-      function:
+      transformation:
         externalId: create_asset_hierarchy
         concurrencyPolicy: waitForCurrent
     retries: 3
@@ -28,7 +28,7 @@ workflowDefinition:
   - externalId: icapi_ts_assets_contextualization
     type: transformation
     parameters:
-      function:
+      transformation:
         externalId: icapi_ts_assets_contextualization
         concurrencyPolicy: waitForCurrent
     retries: 3
